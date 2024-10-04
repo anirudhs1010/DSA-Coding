@@ -16,6 +16,8 @@ public:
         int v = s.top();
         s.pop();
         m[v]--;
+        if (m[v] == 0)
+            m.erase(v);
     }
     
     int top() {
