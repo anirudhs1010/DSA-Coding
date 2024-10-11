@@ -4,7 +4,7 @@ public:
         map<int, int> m;
         if (arr.size()%2 != 0)
             return false;
-        
+        //what is this ghost file
         //(b + (a % b)) % b
         for (int i = 0; i < arr.size(); i++) {
             m[(k + arr[i] % k)%k]++;
