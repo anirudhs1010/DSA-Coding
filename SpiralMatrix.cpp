@@ -19,24 +19,21 @@ public:
                 ans.push_back(matrix[i][r-1]);
             }
             r--;
-            
-            // Check if there's a bottom row to traverse
-            if (t < b) {
-                // Traverse from right to left
-                for (int i = r-1; i >= l; i--) {
-                    ans.push_back(matrix[b-1][i]);
-                }
-                b--;
+
+            if (!(t < b) || !(l < r))
+                break;
+            // Traverse from right to left
+            for (int i = r-1; i >= l; i--) {
+                ans.push_back(matrix[b-1][i]);
             }
+            b--;
             
-            // Check if there's a left column to traverse
-            if (l < r) {
-                // Traverse from bottom to top
-                for (int i = b-1; i >= t; i--) {
-                    ans.push_back(matrix[i][l]);
-                }
-                l++;
+            // Traverse from bottom to top
+            for (int i = b-1; i >= t; i--) {
+                ans.push_back(matrix[i][l]);
             }
+            l++;
+            
         }
         
         return ans;
