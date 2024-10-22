@@ -1,41 +1,29 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        if (matrix.empty()) return {}; // Handle empty matrix
-        
-        int l = 0, r = matrix[0].size(); // `r` should be the number of columns
-        int t = 0, b = matrix.size();    // `b` should be the number of rows
-        vector<int> ans;
-        
-        while (l < r && t < b) {
-            // Traverse from left to right
-            for (int i = l; i < r; i++) {
-                ans.push_back(matrix[t][i]);
+        int t = 0, b = matrix.size();
+        int l = 0, r = matrix[0].size();
+        vector<int> res;
+        while (l != r && t != b) { //make sure our bounds are never equal 
+            for (int i = l; i < r; i++) { //first we do the first row left to right
+                res.push_back(matrix[t][i]);
             }
-            t++;
-            
-            // Traverse from top to bottom
-            for (int i = t; i < b; i++) {
-                ans.push_back(matrix[i][r-1]);
+            t++; //each time we update the top bound and shrink since we dont need to consider that row anymore
+            for (int i = t; i < b; i++) { //then we crawl along the last column down
+                res.push_back(matrix[i][r-1]);
             }
-            r--;
-
-            if (!(t < b) || !(l < r))
+            r--; //each time we update our right as we dont need to consider that column anymore.
+            if (!(l < r) || !(t < b)) //we break in the middle if the conditions are violated i.e. it may not end before # operations divisible by 4.
                 break;
-            // Traverse from right to left
-            for (int i = r-1; i >= l; i--) {
-                ans.push_back(matrix[b-1][i]);
+            for (int i = r-1; i >= l; i--) { //then we craw along the last row going until left
+                res.push_back(matrix[b-1][i]);
             }
-            b--;
-            
-            // Traverse from bottom to top
-            for (int i = b-1; i >= t; i--) {
-                ans.push_back(matrix[i][l]);
+            b--; //we dont need to consider bottom row
+            for (int i = b-1; i >= t; i--) { //then we go up till we hit the top bound
+                res.push_back(matrix[i][l]);
             }
-            l++;
-            
+            l++; //we dont need to consider first column
         }
-        
-        return ans;
+        return res;
     }
 };
