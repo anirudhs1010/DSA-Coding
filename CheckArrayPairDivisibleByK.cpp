@@ -4,7 +4,6 @@ public:
         map<int, int> m;
         if (arr.size()%2 != 0)
             return false;
-        
         //(b + (a % b)) % b
         for (int i = 0; i < arr.size(); i++) {
             m[(k + arr[i] % k)%k]++;
