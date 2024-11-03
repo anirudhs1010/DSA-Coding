@@ -4,7 +4,7 @@ public:
         stack<int> s;
         stack<int> j;
         vector<int> ans(temperatures.size(), 0);
-        for (int i= 0; i < temperatures.size(); i++) {
+        for (int i = 0; i < temperatures.size(); i++) {
             while(!s.empty() && s.top() < temperatures[i]) {
                 s.pop();
                 ans[j.top()] = i-j.top();
