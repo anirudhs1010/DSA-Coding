@@ -9,7 +9,7 @@ public:
             return 0;
         }
         int res = dfs(i+1);
-        if (i +1 < a.size() && (a[i] == '1' || 
+        if (i+1 < a.size() && (a[i] == '1' || 
                (a[i] == '2' && a[i + 1] < '7')))
             res += dfs(i+2);
         dp[i] = res;
