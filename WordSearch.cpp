@@ -19,7 +19,6 @@ public:
             for (int j = 0; j < board[0].size(); j++) {
                 if (backtrack(board, word, i, j, 0))
                     return true;
-                
             }
         }
         return false;
