@@ -1,21 +1,21 @@
 class Solution {
 public:
-    int longestCommonSubsequence(string text1, string text2) {
-        vector<int> dp(text1.size(), 0);
-        int longest = 0;
-
-        for (char c : text2) {
-            int curLength = 0;
-            for (int i = 0; i < dp.size(); i++) {
-                if (curLength < dp[i]) {
-                    curLength = dp[i];
-                } else if (c == text1[i]) {
-                    dp[i] = curLength + 1;
-                    longest = max(longest, curLength + 1);
-                }
-            }
+    vector<vector<int>> memo;
+    int dfs(string a, string b, int i, int j) {
+        if (i == a.size() || j == b.size())
+            return 0;
+        if (memo[i][j] != -1) {
+            return memo[i][j];
         }
-
-        return longest;        
+        if (a[i] == b[j]) {
+            memo[i][j] = 1+dfs(a, b, i+1, j+1);   
+        }
+        else
+            memo[i][j] = max(dfs(a, b, i+1, j), dfs(a, b, i, j+1));
+        return memo[i][j];
+    }
+    int longestCommonSubsequence(string text1, string text2) {
+        memo.assign(text1.size(), vector<int>(text2.size(), -1));
+        return dfs(text1, text2, 0, 0);
     }
 };
