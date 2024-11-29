@@ -6,7 +6,6 @@ public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         if (c == 0) {
             y = image[sr][sc];
-
         }
         if (sr < 0 || sr >= image.size() || sc < 0 || sc >= image[0].size() || visited[sr][sc])
             return image;
