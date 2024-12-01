@@ -4,7 +4,6 @@ public:
     MapSum() {
         m["0"] = {};
     }
-    
     void insert(string key, int val) {
         m[key] =val;
     }
