@@ -16,10 +16,6 @@ public:
                 matrix[i][j] = matrix[i][matrix[0].size()-j-1];
                 matrix[i][matrix[0].size()-j-1] = temp;
             }
-        }
-
-        
-
-      
+        }      
     }
 };
