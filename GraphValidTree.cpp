@@ -9,7 +9,7 @@ public:
             return false;
         s.insert(i);
         m[i] = true;
-
+        //did not check for parent node which was leading to some errors.
         for (int neighbor : g[i]) {
             if (neighbor != parent && (!m[neighbor] && !dfs(neighbor, i)))
                 return false;
