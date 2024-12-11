@@ -5,7 +5,6 @@ public:
         m[s.size()] = true;
         return dfs(s, wordDict, 0);
     }
-
 private:
     bool dfs(const string& s, const vector<string>& wordDict, int i) {
         if (m.find(i) != m.end())
