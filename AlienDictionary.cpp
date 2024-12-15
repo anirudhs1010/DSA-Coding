@@ -31,7 +31,6 @@ public:
                 q.push(c);
         }
         string res;
-        
         while (!q.empty()) {
             char ch = q.front();
             q.pop();
