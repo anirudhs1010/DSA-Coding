@@ -1,1 +1,1 @@
- These are all the Data Structure ang Algorithms (DSA) problems I have been doing to practice programming with a time constraint. Many of them are from Leetcode. A few of them are from Codeforces, Kattis, CSES, and Codesignal.
+ These are all the Data Structure and Algorithms (DSA) problems I have been doing to practice programming with a time constraint. Many of them are from Leetcode. A few of them are from Codeforces, Kattis, CSES, and Codesignal.
