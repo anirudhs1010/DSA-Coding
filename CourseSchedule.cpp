@@ -1,35 +1,35 @@
 class Solution {
 public:
-    unordered_map<int, vector<int>> m;
-    unordered_set<int> s;
-    bool dfs(int elem) {
-        if (s.find(elem) != s.end()) {
-            return false;
-        }
-        if (m[elem].empty())
+    //cycle detection
+    //graph is directed
+    map<int, vector<int>> m;
+    map<int, bool> s;
+    bool dfs(int i) {
+        if (m[i].empty())
             return true;
-        s.insert(elem); //we add to the set of elements we are visiting
-        for (int g: m[elem]) {
-            if (!dfs(g))
-                return false; 
+        if (s[i])
+            return false;
+        s[i] = true;
+        for (int n: m[i]) {
+            if (!dfs(n))
+                return false;
         }
-        s.erase(elem);  //if we fell off the graph we know now the element doesn't have a cycle
-        m[elem].clear(); //clear the visited element cuz we know it falls off 
+        s[i] = false;
         return true;
     }
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         for (int i = 0; i < numCourses; i++) {
-            m[i] = {}; //intialize map with empty
+            m[i] = {};
         }
         for (int i = 0; i < prerequisites.size(); i++) {
-            vector<int> b = prerequisites[i];
-            m[b[0]].push_back(b[1]); //populate with values of courses
+            vector<int> a = prerequisites[i];
+            m[a[0]].push_back(a[1]);
         }
         for (int i = 0; i < numCourses; i++) {
-            if (!dfs(i)) { //dfs through all
+            if (!dfs(i))
                 return false;
-            }
         }
         return true;
+        
     }
 };
