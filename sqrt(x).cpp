@@ -13,6 +13,5 @@ public:
             mid = (l+r)/2;
         }
         return r;
-        
     }
 };
