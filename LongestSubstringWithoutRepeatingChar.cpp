@@ -1,7 +1,6 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        
         int l = 0, r = 0;
         unordered_set<int> b;
         int maxs = 0;
