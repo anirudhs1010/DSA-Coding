@@ -6,12 +6,10 @@ public:
     MinStack() {
         
     }
-    
     void push(int val) {
         s.push(val);
         m[val]++;
     }
-    
     void pop() {
         int v = s.top();
         s.pop();
@@ -19,11 +17,9 @@ public:
         if (m[v] == 0)
             m.erase(v);
     }
-    
     int top() {
         return s.top();
     }
-    
     int getMin() {
         if (!m.empty()) {
             const auto b = m.begin();
@@ -32,7 +28,6 @@ public:
         return 0;
     }
 };
-
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack* obj = new MinStack();
