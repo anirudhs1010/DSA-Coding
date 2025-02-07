@@ -23,6 +23,5 @@ public:
         vector<int> res;
         inorder(root, res);
         return res;
-        
     }
 };
