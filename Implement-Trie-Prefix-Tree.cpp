@@ -16,7 +16,6 @@ public:
     Trie() {
         root = new TrieNode();
     }
-    
     void insert(string word) {
         TrieNode *p = root;
         for (auto &a : word) {
@@ -26,7 +25,6 @@ public:
         }
         p->isWord = true;
     }
-    
     bool search(string word, bool prefix =false) {
         TrieNode *p = root;
         for (auto &a : word) {
@@ -42,7 +40,6 @@ public:
         return search(prefix, true);
     }
 };
-
 /**
  * Your Trie object will be instantiated and called as such:
  * Trie* obj = new Trie();
