@@ -30,6 +30,5 @@ int main()
         cout << "Yes" <<endl;
     else
         cout<<"No";
-
     return 0;
 }
