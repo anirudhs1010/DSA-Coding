@@ -2,6 +2,7 @@ class Solution {
 public:
     
     string foreignDictionary(vector<string>& words) {
+        //topo sort
         unordered_map<char, unordered_set<char>> adj;
         unordered_map<char, int> indegree;
         for (string w: words) {
