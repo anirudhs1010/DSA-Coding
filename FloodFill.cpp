@@ -12,7 +12,6 @@ public:
         else if (image[sr][sc] == color || image[sr][sc] != y) {
             return image;
         }
-        
         image[sr][sc] = color;
         visited[sr][sc] = true;
         c++;
