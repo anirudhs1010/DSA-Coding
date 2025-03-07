@@ -14,6 +14,7 @@ public:
             memo[i][j] = max(dfs(a, b, i+1, j), dfs(a, b, i, j+1));
         return memo[i][j];
     }
+
     int longestCommonSubsequence(string text1, string text2) {
         memo.assign(text1.size(), vector<int>(text2.size(), -1));
         return dfs(text1, text2, 0, 0);
