@@ -1,28 +1,23 @@
-//review this
 class Solution {
 public:
-    vector<string> ans;
-    stack<char> s;
-    string y = "";
-    void backtrack(int l, int r, int n) {
-        if (l == r && r == n) {
-            ans.push_back(y);
+
+    vector<string> v;
+    int sz = 0;
+    void backtrack(int open, int close, string s) {
+        if (s.size() == 2*sz) {
+            v.push_back(s);
             return;
         }
-        if (l < n) {
-            y.push_back('(');
-            backtrack(l+1, r, n);
-            y.pop_back();
+        if (open < sz) {
+            backtrack(open+1, close, s + "(");
         }
-        if (r < l) {
-            y.push_back(')');
-            backtrack(l, r+1, n);
-            y.pop_back();
+        if (close < open) {
+            backtrack(open, close+1, s + ")");
         }
     }
     vector<string> generateParenthesis(int n) {
-        string h = "";
-        backtrack(0, 0, n);
-        return ans;
+        sz = n;
+        backtrack(1, 0, "(");
+        return v;
     }
 };
