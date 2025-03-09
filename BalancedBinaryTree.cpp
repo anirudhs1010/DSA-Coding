@@ -22,6 +22,7 @@ public:
             sol = false;
         return max(1+r, 1+l);
     }
+
     bool isBalanced(TreeNode* root) {
         if (!root)
             return true;
