@@ -17,9 +17,7 @@ public:
             return 0;
         int l= dfs(root->left);
         int r =dfs(root->right);
-        if (mx < l+r)
-            mx = l+r;
-        cout << l << " " << r << endl;
+        mx = max(mx, l+r);
         return max(1+l, 1+r);
     }
     int diameterOfBinaryTree(TreeNode* root) {
