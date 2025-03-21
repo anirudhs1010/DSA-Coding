@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     string foreignDictionary(vector<string>& words) {
         //topo sort
         unordered_map<char, unordered_set<char>> adj;
