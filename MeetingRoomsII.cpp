@@ -2,14 +2,16 @@ class Solution {
 public:
     int minMeetingRooms(vector<vector<int>>& intervals) {
         map<int, int> m;
-        for (auto u: intervals) {
-            m[u[0]]++;
-            m[u[1]]--;
+        for (int i = 0; i < intervals.size(); i++) {
+            vector<int> v = intervals[i];
+            m[v[0]]++;
+            m[v[1]]--;
         }
-        int res = 0, curr = 0;
-        for (auto h: m) {
-            res = max(res, curr+=h.second);
+        int curr = 0, tot = 0;
+        for (const auto b:m) {
+            curr += b.second;
+            tot = max(tot, curr);
         }
-        return res;
+        return tot;
     }
 };
